@@ -1,3 +1,3 @@
 <x-admin-layout>
-    Holaaaa mundoooo
+    Hola profe
 </x-admin-layout>
