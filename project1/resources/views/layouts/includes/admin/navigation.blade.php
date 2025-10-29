@@ -9,7 +9,7 @@
             </svg>
          </button>
         <a href="" class="flex ms-2 md:me-24">
-            <img src="imagens/logo_simify.png" class="h-8 me-3" alt="SIMIFY logo " />
+            <img src="{{asset('images/logo_simify.png')}}" class="h-8 me-3" alt="SIMIFY logo " />
           <span class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">SIMIFY</span>
         </a>
       </div>

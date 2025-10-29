@@ -1,44 +1,22 @@
 @php
 $Links = [
     [
-        'name' => 'dashboard',
+        'name' => 'Dashboard',
         'icon' => 'fa-solid fa-gauge',
         'href' => route('admin.dashboard'),
         'active' => request()->routeIs('admin.dashboard'),
     ],
     [
-        'header' => 'Hospital',
+        'header' => 'Gestión',
     ],
     [
-        'name' => 'Dashboard', // Este es el enlace padre del submenú
-        'icon' => 'fa-solid fa-gauge',
-        'href' => '#', // El padre no necesita enlace, solo abre el menú
-        'active' => false,
-        'submenu' => true,
+        'name' => 'Roles y permisos', // Este es el enlace padre del submenú
+        'icon' => 'fa-solid fa-shield-halved',
+        'href' => route('admin.roles.index'), // El padre no necesita enlace, solo abre el menú
+        'active' => request()->routeIs('admin.roles.*'),
         
-        // CORRECCIÓN: Los items del submenú deben ir anidados en una llave 'items'
-        'items' => [
-            [
-                'name' => 'Patients', // Corregido: sin espacio en 'name '
-                'icon' => 'fa-solid fa-user-injured',
-                'href' => '#',
-                'active' => false,
-            ],
-            [
-                'name' => 'Appoiments', // Corregido: sin espacio en 'name '
-                'icon' => 'fa-solid fa-user-injured',
-                'href' => '#',
-                'active' => false,
-            ],
-            [
-                'name' => 'INVOICE', // Corregido: sin espacio en 'name '
-                'icon' => 'fa-solid fa-user-injured',
-                'href' => '#',
-                'active' => false,
-            ],
         ]
-    ],
-];
+    ];
 @endphp
 
 
