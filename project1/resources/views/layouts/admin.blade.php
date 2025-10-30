@@ -1,4 +1,4 @@
-
+@props(['breadcrumbs' => []])
 @props ([
 'title' => config('app.name', 'Laravel'),
 'breadcrumbs' => [],
@@ -14,6 +14,18 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
+
+        
+
+
+
+
+
+
+
+
+
+
 
         <title>{{ config('app.name', 'Laravel') }}</title>
 
@@ -40,10 +52,10 @@
 
 <div class="p-4 sm:ml-64">
    <!-- añadir margen superior -->
-    <div class="mt-14">
-{{ $slot }}
-
+    <div class="mt-14 items-center justify-between w-full">
+        @include ('layouts.includes.admin.breadcrumb', ['breadcrumbs' => $breadcrumbs])
     </div>
+    {{ $slot }}
 </div>
 
 
