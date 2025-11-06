@@ -8,7 +8,7 @@
         'href' => route('admin.dashboard'),
     ],
     [
-        'name' => 'H8',
+        'name' => '',
         'href' => route('admin.dashboard'),
     ]
 

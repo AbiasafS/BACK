@@ -1,6 +1,6 @@
 <x-admin-layout :breadcrumbs="[
     ['name' => 'Dashboard'],
-    ['name' => route('admin.roles.index')]
+    ['href' => route('admin.roles.index')]
 ],
 [
     'name' => 'Crear rol',

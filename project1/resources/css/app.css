@@ -1,11 +1,13 @@
+/* 1. Importa Font Awesome (opcional, pero lo tenías) */
+/* Asegúrate de haberlo instalado con: npm install @fortawesome/fontawesome-free */
+@import '@fortawesome/fontawesome-free/css/all.min.css';
+
+/* 2. Directivas de Tailwind (esto incluirá Flowbite automáticamente) */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import "flowbite/src/themes/default";
-@plugin "flowbite/plugin";
-@source "../../node_modules/flowbite";
-
+/* 3. Estilos personalizados (como el de Alpine.js) */
 [x-cloak] {
     display: none;
 }
