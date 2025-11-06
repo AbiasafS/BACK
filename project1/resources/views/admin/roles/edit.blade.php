@@ -1,5 +1,5 @@
 <x-admin-layout :breadcrumbs="[
-    ['name' => 'Dashboard'],
+    ['name' => 'edit'],
     ['name' => route('admin.roles.index')]
 ],
 [
@@ -12,5 +12,5 @@
 ],
 
 ">
-    Hola profe
+    
 </x-admin-layout>

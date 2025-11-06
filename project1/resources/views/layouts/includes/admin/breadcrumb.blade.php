@@ -10,29 +10,23 @@
                         <span class="px-2 text-gray-400">/</span>
                     @endunless
 
-                    {{-- Si es el último elemento O no tiene 'href', muéstralo como texto --}}
-                    @if ($loop->last || !isset($breadcrumb['href']))
-                        <span class="opacity-60">
-                            {{ $breadcrumb['name'] }}
-                        </span>
-                    @else
-                    {{-- Si no es el último Y tiene 'href', muéstralo como enlace --}}
+                    {{-- Solo crea un enlace si tiene 'href' Y no es el último elemento. --}}
+                    @if (isset($breadcrumb['href']) && !$loop->last)
                         <a href="{{ $breadcrumb['href'] }}" class="opacity-60 hover:opacity-100 transition">
-                            {{ $breadcrumb['name'] }}
+                            {{ $breadcrumb['name'] ?? '' }} {{-- Seguridad --}}
                         </a>
+                    
+                    @else
+                    {{-- Es el último elemento O NO tiene 'href', muéstralo como texto simple --}}
+                        <span class="opacity-60">
+                            {{-- ⭐ CORRECCIÓN CLAVE: El operador ?? evita el error Undefined array key "name" ⭐ --}}
+                            {{ $breadcrumb['name'] ?? '' }} 
+                        </span>
                     @endif
 
                 </li>
             @endforeach
 
         </ol>
-        
-        {{-- Esta parte probablemente debería ir fuera del primer @if, o eliminarse --}}
-        {{-- @if(count($breadcrumbs)<1)
-            <h6 class="font-bold mt-2">
-                {{ end($breadcrumbs['name']) }}
-            </h6>
-        @endif --}}
-
     </nav>
 @endif

@@ -1,7 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+/* @import 'fontawesome.css';
+/* Elimina la línea antigua de importación de node_modules */
+@import '@fortawesome/fontawesome-free/css/all.min.css'; */
 @import "flowbite/src/themes/default";
 @plugin "flowbite/plugin";
 @source "../../node_modules/flowbite";
