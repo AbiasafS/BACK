@@ -43,6 +43,11 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
+
+        <!-- sweet alert 2 -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
         <!-- wireui -->
         wireui:scripts />
         <!-- Styles -->
@@ -58,17 +63,35 @@
 
 
 <div class="p-4 sm:ml-64">
-   <!-- añadir margen superior -->
-    <div class="mt-14 items-center justify-between w-full">
-        @include ('layouts.includes.admin.breadcrumb', ['breadcrumbs' => $breadcrumbs])
+    <div class="mt-14 w-full">
+
+        <div class="flex justify-between items-center mb-4">
+
+            <div>
+                @include ('layouts.includes.admin.breadcrumb', ['breadcrumbs' => $breadcrumbs])
+            </div>
+
+            <div>
+                @isset($action)
+                    {{ $action }}
+                @endisset
+            </div>
+        </div>
+        {{ $slot }}
     </div>
-    {{ $slot }}
 </div>
 
 
         @stack('modals')
 
         @livewireScripts
+
+        <!-- mostrar sweetalert -->
+         @if (session('swal'))
+            <script>
+                Swal.fire(@json('swal'));
+            </script>
+        @endif
 
        
     </body>
