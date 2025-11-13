@@ -87,11 +87,43 @@
         @livewireScripts
 
         <!-- mostrar sweetalert -->
-         @if (session('swal'))
-            <script>
-                Swal.fire(@json('swal'));
-            </script>
-        @endif
+        {{-- CÓDIGO CORRECTO --}}
+        @if (session('swal'))
+        <script>
+        Swal.fire({
+            title: '{{ session('swal')['title'] }}', // <--- Así accedes al título
+            text: '{{ session('swal')['text'] }}',   // <--- Así al texto
+            icon: '{{ session('swal')['icon'] }}',   // <--- Y así al ícono
+            timer: {{ session('swal')['timer'] ?? 3000 }} // timer es un número, no un string
+        });
+        </script>
+@endif
+
+        <script>
+            //buscar todos los elemntos ed una clase espeficica 
+            forms = document.querySelectorAll('.delete-form');
+            forms.forEach(form => {
+                // Agregar un listener para el evento submit
+                form.addEventListener('submit', function(event) {
+                    event.preventDefault(); // Prevenir el envío inmediato del formulario
+
+                    Swal.fire({
+                        title: '¿Estás seguro?',
+                        text: "¡No podrás revertir esto!",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Sí, eliminarlo!',
+                        cancelButtonText: 'Cancelar'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            form.submit(); // Enviar el formulario si el usuario confirma
+                        }
+                    });
+                });
+            });
+        </script>
 
        
     </body>

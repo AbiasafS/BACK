@@ -6,7 +6,7 @@
   </x-wire-button>
 
 
-  <form class="inline" action="{{route('admin.roles.destroy', $role)}}" method="POST" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este rol?');">
+  <form class="delete-form" action="{{route('admin.roles.destroy', $role)}}" method="POST"  >
     @csrf
     @method('DELETE')
     <x-wire-button type="submit" red xs>
