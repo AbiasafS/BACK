@@ -15,7 +15,14 @@ $Links = [
         'href' => route('admin.roles.index'), // El padre no necesita enlace, solo abre el menú
         'active' => request()->routeIs('admin.roles.*'),
         
+        ],
+        [
+            'name' => 'Usuarios',
+            'icon' => 'fa-solid fa-users',
+            'href' => route('admin.users.index'),
+            'active' => request()->routeIs('admin.users.*'),
         ]
+    
     ];
 @endphp
 
