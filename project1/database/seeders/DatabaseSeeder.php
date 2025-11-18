@@ -15,11 +15,9 @@ class DatabaseSeeder extends Seeder
     {
         // llama a roule seeder
         $this->call([RoleSeeder::class]);
+        $this->call([UserSeeder::class]);
 
-        User::factory()->create([
-            'name' => 'Abiasaf',
-            'email' => 'salazarabiasaf@gmail.com',
-            'password' => bcrypt('12345678'),
-        ]);
+
+        
     }
 }
